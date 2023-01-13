@@ -60,11 +60,9 @@ jobs:
       - uses: actions/github-script@v6
         with:
           script: |
-            await github.rest.repos.createDispatchEvent({
+            await github.rest.actions.createWorkflowDispatch({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              event_type: `deploy`,
-              client_payload: {
-                sha: context.sha
-              }
+              event_type: `Deploy`,
+              ref: `${{ github.event.repository.default_branch }}`
             })
