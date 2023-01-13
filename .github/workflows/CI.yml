@@ -65,4 +65,7 @@ jobs:
               repo: context.repo.repo,
               workflow_id: `CD.yml`,
               ref: `${{ github.event.repository.default_branch }}`
+              inputs: {
+                sha: `${{ github.sha }},
+              }
             })
