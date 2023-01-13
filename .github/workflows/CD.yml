@@ -6,7 +6,6 @@ on:
     inputs:
       sha:
         type: string
-        default: "${{ github.sha }}"
         required: false
 
 #   workflow_run:
