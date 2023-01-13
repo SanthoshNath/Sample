@@ -63,6 +63,6 @@ jobs:
             await github.rest.actions.createWorkflowDispatch({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              workflow_id: `Deploy`,
+              workflow_id: `CD.yml`,
               ref: `${{ github.event.repository.default_branch }}`
             })
