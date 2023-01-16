@@ -67,12 +67,14 @@ jobs:
         with:
           github-token: ${{ secrets.GH_TOKEN }}
           script: |
+            sha_short = context.sha.substr(0, 7)
+            
             await github.rest.repos.createDispatchEvent({
               owner: context.repo.owner,
               repo: context.repo.repo,
               event_type: 'CD.yml',
               client_payload: {
-                sha: '${{ github.sha }}',
-                sha_short: '${{ steps.sha.outputs.sha }}'
+                sha: context.sha
+                sha_short: sha_short
               }
             })
