@@ -75,7 +75,7 @@ jobs:
               repo: context.repo.repo,
               event_type: 'CD.yml',
               client_payload: {
-                sha: '${{ github.sha }}'
+                sha: '${{ github.sha }}',
                 sha_short: '${{ steps.sha.outputs.sha }}'
               }
             })
