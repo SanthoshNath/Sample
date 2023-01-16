@@ -74,7 +74,7 @@ jobs:
               repo: context.repo.repo,
               event_type: 'CD.yml',
               client_payload: {
-                sha: context.sha
+                sha: context.sha,
                 sha_short: sha_short
               }
             })
