@@ -26,6 +26,9 @@ jobs:
       - name: Checkout codebase
         uses: actions/checkout@v3
         
+      - run: exit 1
+        if: contains('["true"]', inputs.sample)
+        
       - uses: hashicorp/setup-terraform@v2
         with:
           terraform_wrapper: false
