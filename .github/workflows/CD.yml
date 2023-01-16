@@ -1,8 +1,10 @@
 name: Deploy
-run-name: Deploy
+run-name: Deploy ${{ github.event.client_payload.sha_short }}
 
 on:
-  deployment
+  repository_dispatch:
+    types:
+      - CD.yml
 
 #   workflow_run:
 #     workflows:
@@ -22,6 +24,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+          ref: ${{ github.event.client_payload.sha }}
 
       - run: echo '${{ toJSON(github.event) }}'
       
