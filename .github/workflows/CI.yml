@@ -57,6 +57,14 @@ jobs:
             files = commit.files.filter(file => file.status == 'modified').forEach(file => filenames.push(file.filename))
             console.log(filenames)
             
+  trigger:
+    runs-on: ubuntu-latest
+
+    steps:
+      - id: sha
+        run: |
+          echo sha=${${{ github.sha }}:0:7} >> GITHUB_OUTPUT
+    
       - uses: actions/github-script@v6
         with:
           script: |
@@ -65,6 +73,6 @@ jobs:
               repo: context.repo.repo,
               event_type: 'CD.yml',
               client_payload: {
-                sha: '${{ github.sha }}'
+                sha: '${{ steps.sha.outputs.sha }}'
               }
             })
