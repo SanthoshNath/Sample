@@ -62,20 +62,11 @@ jobs:
     needs: build
 
     steps:
-      - id: sha
-        run: |
-          sha=${{ github.sha }}
-          echo sha=${sha:0:7} >> $GITHUB_OUTPUT
-    
       - uses: actions/github-script@v6
         with:
           script: |
-            await github.rest.repos.createDispatchEvent({
+            await github.rest.repos.createDeployment({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              event_type: 'CD.yml',
-              client_payload: {
-                sha: '${{ github.sha }}',
-                sha_short: '${{ steps.sha.outputs.sha }}'
-              }
+              ref: context.sha
             })
