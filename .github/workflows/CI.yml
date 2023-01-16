@@ -60,12 +60,11 @@ jobs:
       - uses: actions/github-script@v6
         with:
           script: |
-            await github.rest.actions.createWorkflowDispatch({
+            await github.rest.repos.createDispatchEvent({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              workflow_id: `CD.yml`,
-              ref: `${{ github.event.repository.default_branch }}`,
-              inputs: {
-                sha: `${{ github.sha }}`,
+              event_type: 'CD.yml',
+              client_payload: {
+                sha: '${{ github.sha }}'
               }
             })
