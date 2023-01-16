@@ -64,6 +64,7 @@ jobs:
     steps:
       - uses: actions/github-script@v6
         with:
+          github-token: ${{ secrets.GH_TOKEN }}
           script: |
             res = await github.rest.repos.createDeployment({
               owner: context.repo.owner,
