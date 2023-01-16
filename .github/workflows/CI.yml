@@ -20,6 +20,7 @@ concurrency: build-${{ github.ref }}
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: devl
 
     steps:
       - name: Checkout codebase
