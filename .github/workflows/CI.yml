@@ -64,7 +64,7 @@ jobs:
       - id: sha
         run: |
           sha=${{ github.sha }}
-          echo sha="${sha:0:7}" >> GITHUB_OUTPUT
+          echo sha=${sha:0:7} >> GITHUB_OUTPUT
     
       - uses: actions/github-script@v6
         with:
