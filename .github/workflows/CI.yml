@@ -67,7 +67,7 @@ jobs:
           sha=${sha:0:7}
           echo sha=$sha >> GITHUB_OUTPUT
           
-      - run: echo '${{ toJSON(steps.sha.outputs) }}'
+      - run: echo '${{ toJSON(steps.sha) }}'
     
       - uses: actions/github-script@v6
         with:
