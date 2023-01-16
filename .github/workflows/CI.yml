@@ -65,7 +65,6 @@ jobs:
     steps:
       - uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.GH_TOKEN }}
           script: |
             sha_short = context.sha.substr(0, 7)
             
