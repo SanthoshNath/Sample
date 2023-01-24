@@ -61,7 +61,6 @@ jobs:
             
   trigger:
     runs-on: ubuntu-latest
-    needs: build
 
     steps:
       - uses: actions/github-script@v6
