@@ -14,13 +14,12 @@ on:
       sample:
         required: false
         type: boolean
-        
-concurrency: build-${{ github.ref }}
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: devl
+    environment: production
+    concurrency: ci
 
     steps:
       - run: pwd
