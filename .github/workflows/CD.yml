@@ -17,8 +17,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: production
-    concurrency: ci
+    environment: devl
 
     steps:
       - name: Checkout codebase
