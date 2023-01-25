@@ -21,7 +21,9 @@ jobs:
     environment: devl
 
     steps:
-      - run: pwd
+      - run: |
+          set +x
+          pwd
     
       - name: Checkout codebase
         uses: actions/checkout@v3
