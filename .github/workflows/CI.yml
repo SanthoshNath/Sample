@@ -31,7 +31,7 @@ jobs:
           
           import os
           with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
-            print(f`json={[x for x in res['response']['docs']]}`, file=fh)
+            print(f'json={[x for x in res["response"]["docs"]]}', file=fh)
           
       - run: echo '${{ toJSON(steps.py.outputs.json) }}'
     
