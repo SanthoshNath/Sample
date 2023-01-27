@@ -21,6 +21,16 @@ jobs:
     environment: devl
 
     steps:
+      - uses: actions/github-script@v6
+        id: my-script
+        with:
+          result-encoding: string
+          script: |
+            await fetch('http://example.com/movies.json').then(
+              response => {
+                console.log(response)
+              }
+    
       - name: Checkout codebase
         uses: actions/checkout@v3
         
