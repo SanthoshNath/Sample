@@ -24,6 +24,7 @@ jobs:
       - shell: python
         run: |
           import requests
+          import json
           
           res = requests.get('http://api.plos.org/search?q=title:DNA').json()
           
