@@ -21,7 +21,10 @@ jobs:
     environment: devl
 
     steps:
-      - run: pwd
+      - run: |
+          sample="I
+          am"
+          echo $sample
     
       - name: Checkout codebase
         uses: actions/checkout@v3
