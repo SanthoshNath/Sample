@@ -24,9 +24,11 @@ jobs:
       - shell: python
         run: |
           import requests
-          res = requests.get('http://api.plos.org/search?q=title:DNA')
+          import json
           
-          print(res.json())
+          res = json.loads(requests.get('http://api.plos.org/search?q=title:DNA').json())
+          
+          print(res['docs'])
     
       - name: Checkout codebase
         uses: actions/checkout@v3
