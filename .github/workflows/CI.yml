@@ -26,6 +26,8 @@ jobs:
         with:
           result-encoding: string
           script: |
+            import fetch from 'node-fetch'
+            
             await fetch('http://api.plos.org/search?q=title:DNA').then(
               response => {
                 console.log(response)
