@@ -30,7 +30,7 @@ jobs:
           res = requests.get('http://api.plos.org/search?q=title:DNA').json()
           
           import os
-          os.environ["GITHUB_OUTPUT"] = f'json={[x for x in res['response']['docs']]}'
+          os.environ["GITHUB_OUTPUT"] = f"json={[x for x in res['response']['docs']]}"
           
       - run: echo '${{ toJSON(steps.py.outputs.json) }}'
     
