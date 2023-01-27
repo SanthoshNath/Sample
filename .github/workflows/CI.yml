@@ -21,17 +21,12 @@ jobs:
     environment: devl
 
     steps:
-      - uses: actions/github-script@v6
-        id: my-script
-        with:
-          result-encoding: string
-          script: |
-            fetch = require('node-fetch')
-            
-            await fetch('http://api.plos.org/search?q=title:DNA').then(
-              response => {
-                console.log(response)
-              })
+      - shell: python
+        run: |
+          import requests
+          res = requests.get('http://api.plos.org/search?q=title:DNA')
+          
+          print(res)
     
       - name: Checkout codebase
         uses: actions/checkout@v3
