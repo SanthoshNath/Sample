@@ -32,7 +32,7 @@ jobs:
           import os
           os.environ["GITHUB_OUTPUT"] = f'json={[x for x in res['response']['docs']]}'
           
-      - run: echo '${{ toJSON(seps.py.outputs.json) }}'
+      - run: echo '${{ toJSON(steps.py.outputs.json) }}'
     
       - name: Checkout codebase
         uses: actions/checkout@v3
