@@ -21,14 +21,18 @@ jobs:
     environment: devl
 
     steps:
-      - shell: python
+      - id: py
+        shell: python
         run: |
           import requests
           import json
           
           res = requests.get('http://api.plos.org/search?q=title:DNA').json()
           
-          print(json.dumps([x for x in res['response']['docs']], indent = 4))
+          import os
+          os.environ["GITHUB_OUTPUT"] = f'json={[x for x in res['response']['docs']]}'
+          
+      - run: echo '${{ toJSON(seps.py.outputs.json) }}'
     
       - name: Checkout codebase
         uses: actions/checkout@v3
