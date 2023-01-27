@@ -28,7 +28,7 @@ jobs:
           
           res = requests.get('http://api.plos.org/search?q=title:DNA').json()
           
-          print(json.dumps(res['response']['docs'][]['id'], indent = 4))
+          print(json.dumps(res['response']['docs'][*]['id'], indent = 4))
     
       - name: Checkout codebase
         uses: actions/checkout@v3
