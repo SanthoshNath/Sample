@@ -18,7 +18,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: devl
+    environment: ${{ github.event_name != 'push' && 'prod' || '' }}
 
     steps:
       - id: py
