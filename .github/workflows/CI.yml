@@ -22,6 +22,7 @@ jobs:
 
     steps:
       - id: py
+        if: github.event_name == mas*
         shell: python
         run: |
           import requests
