@@ -22,7 +22,6 @@ jobs:
 
     steps:
       - id: py
-        if: github.ref_name == 'mas*'
         shell: python
         run: |
           import requests
