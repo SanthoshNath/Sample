@@ -42,6 +42,10 @@ jobs:
 
       - name: Plan
         uses: SanthoshNath/terraform-plan@v1
+      
+      - run: |
+          terraform plan >> tfplan 2>&1
+          cat tfplan
         
       - name: Github event
         env:
