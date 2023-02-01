@@ -42,10 +42,6 @@ jobs:
 
       - name: Plan
         uses: SanthoshNath/terraform-plan@v1
-      
-      - run: |
-          terraform plan >> tfplan 2>&1
-          cat tfplan
         
       - name: Github event
         env:
@@ -74,6 +70,7 @@ jobs:
             
   trigger:
     runs-on: ubuntu-latest
+    if: github.event_name == 'push'
 
     steps:
       - uses: actions/github-script@v6
