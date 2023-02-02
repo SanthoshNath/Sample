@@ -11,6 +11,9 @@ on:
 
   workflow_dispatch:
     inputs:
+      environment:
+        required: false
+        type: environment
       sample:
         required: false
         type: boolean
@@ -21,6 +24,8 @@ jobs:
     environment: devl
 
     steps:
+      - run: echo ${{ secrets.[inputs.environment]_secret }}
+      
       - id: py
         shell: python
         run: |
