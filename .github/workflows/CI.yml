@@ -44,7 +44,12 @@ jobs:
           terraform_wrapper: false
 
       - name: Plan
+        id: plan
         uses: SanthoshNath/terraform-plan@v1
+        
+      - run: |
+          plan=echo "${{ steps.plan.outputs.stdout }}" | sed -e 's/\x1b\[[0-9;]*m//g'
+          echo $plan
         
       - name: Github event
         env:
