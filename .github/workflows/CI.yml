@@ -45,7 +45,7 @@ jobs:
         
       - run: |
           plan=$(echo '${{ steps.plan.outputs.plan_stdout }}' | sed -e 's/\x1b\[[0-9;]*m//g')
-          echo $plan
+          echo "$plan"
         
       - name: Github event
         env:
