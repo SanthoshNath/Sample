@@ -41,7 +41,7 @@ jobs:
 
       - name: Plan
         id: plan
-        uses: SanthoshNath/terraform-plan@v1
+        uses: SanthoshNath/terraform-plan@master
         
       - run: |
           plan=$(echo '${{ steps.plan.outputs.plan_stdout }}' | sed -e 's/\x1b\[[0-9;]*m//g')
