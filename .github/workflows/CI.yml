@@ -43,7 +43,8 @@ jobs:
         with:
           terraform_wrapper: false
 
-      - uses: SanthoshNath/terraform-plan@v1
+      - name: Plan
+        uses: SanthoshNath/terraform-plan@master
         
       - name: Github event
         env:
