@@ -43,7 +43,7 @@ jobs:
         id: plan
         uses: SanthoshNath/terraform-plan@master
         
-      - run: sed -e 's/\x1b\[[0-9;]*m//g' '${{ steps.plan.outputs.plan_stdout }}'
+      - run: echo '${{ steps.plan.outputs.plan_stdout }}' | sed -e 's/\x1b\[[0-9;]*m//g'
         
       - name: Github event
         env:
