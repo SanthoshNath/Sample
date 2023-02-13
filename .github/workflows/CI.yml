@@ -65,8 +65,6 @@ jobs:
             files = commit.files.filter(file => file.status == 'modified').forEach(file => filenames.push(file.filename))
             console.log(filenames)
             
-      - run: exit 1
-            
   trigger:
     needs: build
     runs-on: ubuntu-latest
