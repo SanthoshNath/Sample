@@ -65,10 +65,12 @@ jobs:
             files = commit.files.filter(file => file.status == 'modified').forEach(file => filenames.push(file.filename))
             console.log(filenames)
             
+      - run: exit 1
+            
   trigger:
     needs: build
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && contains(needs.*.result, 'failure')
+    if: github.event_name == 'push' && contains(needs.*.result, 'success')
 
     steps:
       - uses: actions/github-script@v6
