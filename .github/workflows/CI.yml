@@ -54,8 +54,6 @@ jobs:
         run: echo ${{ fromJson(env.AWS).sample.cluster_name }}
             
       - uses: actions/github-script@v6
-        env:
-          sample: ${{ toJSON(steps.*.outcome) }}
         with:
           script: |
             const { data: commit } = await github.rest.repos.getCommit({
