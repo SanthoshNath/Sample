@@ -66,8 +66,9 @@ jobs:
             console.log(filenames)
             
   trigger:
+    needs: build
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
+    if: github.event_name == 'push' && contains(needs.*.result, 'failure')
 
     steps:
       - uses: actions/github-script@v6
