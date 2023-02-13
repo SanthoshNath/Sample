@@ -23,7 +23,7 @@ jobs:
     steps:
       - id: py
         shell: python
-        if: inputs.environment == 'devl' && always()
+        if: always() && inputs.environment == 'devl'
         run: |
           import requests
           import json
