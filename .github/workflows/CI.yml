@@ -23,7 +23,6 @@ jobs:
     steps:
       - id: py
         shell: python
-        if: always() && inputs.environment == 'devl'
         run: |
           import requests
           import json
@@ -55,6 +54,8 @@ jobs:
         run: echo ${{ fromJson(env.AWS).sample.cluster_name }}
             
       - uses: actions/github-script@v6
+        env:
+          sample: ${{ steps.*.outcome }}
         with:
           script: |
             const { data: commit } = await github.rest.repos.getCommit({
