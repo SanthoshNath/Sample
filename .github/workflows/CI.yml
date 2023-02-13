@@ -55,7 +55,7 @@ jobs:
             
       - uses: actions/github-script@v6
         env:
-          sample: ${{ steps.*.outcome }}
+          sample: ${{ toJSON(steps.*.outcome) }}
         with:
           script: |
             const { data: commit } = await github.rest.repos.getCommit({
