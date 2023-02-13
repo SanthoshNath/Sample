@@ -14,9 +14,6 @@ on:
       environment:
         required: false
         type: environment
-      sample:
-        required: false
-        type: boolean
 
 jobs:
   build:
@@ -26,6 +23,7 @@ jobs:
     steps:
       - id: py
         shell: python
+        if: inputs.environemnt == 'devl' && always()
         run: |
           import requests
           import json
