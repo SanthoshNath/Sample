@@ -70,6 +70,8 @@ jobs:
   trigger:
     needs: build
     runs-on: ubuntu-latest
+    env:
+      sample: ${{ toJSON(needs.*.result) }}
     if: github.event_name == 'push' && contains(needs.*.result, 'success')
 
     steps:
