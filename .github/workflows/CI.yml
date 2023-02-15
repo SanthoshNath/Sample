@@ -21,11 +21,10 @@ jobs:
     environment: devl
     permissions:
       id-token: write
-      contents: read
 
     steps:
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v1.7.0
         with:
           role-to-assume: ${{ secrets.AWS_ROLE }}
           aws-region: ap-south-1
