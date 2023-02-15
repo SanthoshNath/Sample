@@ -19,6 +19,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     environment: devl
+    permissions:
+      id-token: write
+      contents: read
 
     steps:
       - name: Configure AWS Credentials
