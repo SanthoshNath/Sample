@@ -35,11 +35,6 @@ jobs:
     
       - name: Checkout codebase
         uses: actions/checkout@v3
-        
-      - run: echo "sample=$(terraform plan)" >> $GITHUB_OUTPUT
-        id: plan1
-      
-      - run: echo ${{ steps.plan1.outputs.sample }}
 
       - name: Plan
         id: plan
