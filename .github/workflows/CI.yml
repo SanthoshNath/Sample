@@ -35,6 +35,14 @@ jobs:
     
       - name: Checkout codebase
         uses: actions/checkout@v3
+        
+      - name: Checkout codebase
+        uses: actions/checkout@v3
+        
+      - run: |
+          pwd
+          cd ..
+          pwd
 
       - name: Plan
         id: plan
