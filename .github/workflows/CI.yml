@@ -36,13 +36,14 @@ jobs:
       - name: Checkout codebase
         uses: actions/checkout@v3
         
+      - run: git rev-parse HEAD
+        
       - name: Checkout codebase
         uses: actions/checkout@v3
+        with:
+          ref: 606813e7f92bc0736b09acd8e319edf854fe347e
         
-      - run: |
-          pwd
-          cd ..
-          pwd
+      - run: git rev-parse HEAD
 
       - name: Plan
         id: plan
