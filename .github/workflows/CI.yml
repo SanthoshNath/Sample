@@ -35,10 +35,6 @@ jobs:
     
       - name: Checkout codebase
         uses: actions/checkout@v3
-        
-      - run: |
-          tag=sample
-          echo ::notice title=Image tag::${tag}-123
 
       - name: Plan
         id: plan
