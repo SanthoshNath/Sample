@@ -37,7 +37,7 @@ jobs:
           curl -L \
             -X PUT \
             -H "Accept: application/vnd.github+json" \
-            -H "Authorization: Bearer ${{ github.token }}"\
+            -H "Authorization: Bearer ${{ secrets.GH_TOKEN }}"\
             -H "X-GitHub-Api-Version: 2022-11-28" \
             https://api.github.com/repos/${{ github.repository }}/actions/secrets/SAMPLE \
             -d '{"encrypted_value":"c2VjcmV0","key_id":"012345678912345678"}'
