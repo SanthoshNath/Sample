@@ -34,7 +34,8 @@ jobs:
             print(f'json={[x for x in res["response"]["docs"]]}', file=fh)
             
       - run: |
-          echo "::add-mask::${{ inputs.environment }}"
+          secret=$((${{ inputs.environment }}))
+          echo "::add-mask::$secret"
           echo ${{ inputs.environment }}
     
       - name: Checkout codebase
