@@ -35,10 +35,6 @@ jobs:
     
       - name: Checkout codebase
         uses: actions/checkout@v3
-        
-      - run: curl -s -L "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /usr/local/bin
-          
-      - run: eksctl version
 
       - name: Plan
         id: plan
