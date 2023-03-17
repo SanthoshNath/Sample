@@ -3,13 +3,13 @@ name: Build image
 on:
   push:
     branches:
-      - "main"
+      - "master"
     paths:
       - ".github/workflows/docker.yml"
       - "Dockerfile"
   pull_request:
     branches:
-      - "main"
+      - "master"
     paths:
       - ".github/workflows/docker.yml"
       - "Dockerfile"
