@@ -35,10 +35,6 @@ jobs:
     
       - name: Checkout codebase
         uses: actions/checkout@v3
-
-      - name: Plan
-        id: plan
-        uses: benzene-tech/terraform-plan@v1
         
       - name: Github event
         env:
