@@ -1,8 +1,8 @@
-variable "ss" {
+variable "sample" {
   type    = string
-  default = "Sample"
+  default = "sample"
 }
 
-output "ss" {
-  value = var.ss
+output "sample" {
+  value = "${var.sample}-${terraform.workspace}"
 }
