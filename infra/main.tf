@@ -1,6 +1,6 @@
 variable "sample" {
   type    = string
-  default = "Sample"
+  default = "sample"
 }
 
 output "sample" {
