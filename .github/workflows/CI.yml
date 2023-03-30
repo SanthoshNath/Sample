@@ -38,11 +38,11 @@ jobs:
         
       - run: echo $SAMPLE
         env:
-          SAMPLE: ${{ inputs.environemnt }} || 'prod'
+          SAMPLE: ${{ '${{ inputs.environment }}' || 'prod' }}
         
       - name: Github event
         env:
-          sample1: ${{ '${{ inputs.environemnt }}' || '' }}
+          sample1: ${{ '${{ inputs.environment }}' || '' }}
         run: |
           echo ${{ env.sample1 }}
           echo '${{ toJSON(github.event) }}'
