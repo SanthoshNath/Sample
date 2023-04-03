@@ -3,6 +3,8 @@ variable "sample" {
   default = "Sample"
 }
 
+providrr "aws" {}
+
 data "aws_iam_role" "example" {
   name = "GitHubActions"
 }
