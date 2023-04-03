@@ -44,7 +44,6 @@ jobs:
         run: |
           echo ${{ env.sample1 }}
           echo '${{ toJSON(github.event) }}'
-          echo "::error::Sample"
 
       - name: Run a one-line script
         env:
