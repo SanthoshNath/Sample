@@ -5,9 +5,7 @@ variable "sample" {
 
 provider "aws" {}
 
-data "aws_iam_role" "example" {
-  name = "GitHubActions"
-}
+data "aws_iam_roles" "roles" {}
 
 output "sample" {
   value = "${var.sample}-${terraform.workspace}"
