@@ -8,5 +8,5 @@ data "external" "example" {
 }
 
 output "sample" {
-  value = data.external.example.result
+  value = data.external.example.result.policies
 }
