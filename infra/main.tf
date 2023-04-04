@@ -4,5 +4,5 @@ variable "sample" {
 }
 
 output "sample" {
-  value = [for policy in data.external.example.result.Policies : policy.PolicyName]
+  value = var.sample
 }
