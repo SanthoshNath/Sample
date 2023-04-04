@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 
-aws iam list-policies | jq '[.Policies[].PolicyName]'
+policies=$(aws iam list-policies | jq '[.Policies[].PolicyName]')
+
+jq -n --arg policies $policies \
+      '{"policies":$policies}'
