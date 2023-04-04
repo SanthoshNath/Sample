@@ -4,9 +4,9 @@ variable "sample" {
 }
 
 data "external" "example" {
-  program = ["bash", "sample.sh"]
+  program = ["aws", "iam list-policies"]
 }
 
 output "sample" {
-  value = data.external.example.result.policies
+  value = [for policy in data.external.example.result.Policies : policy.PolicyName]
 }
