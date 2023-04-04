@@ -4,7 +4,7 @@ variable "sample" {
 }
 
 data "external" "example" {
-  program = ["/bin/bash", "aws iam list-policies | jq '[.Policies[].PolicyName]'"]
+  program = ["bash", "sample.sh"]
 }
 
 output "sample" {
