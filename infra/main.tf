@@ -4,7 +4,7 @@ variable "sample" {
 }
 
 data "external" "example" {
-  program = ["aws", "iam list-policies"]
+  program = ["aws", "iam", "list-policies"]
 }
 
 output "sample" {
