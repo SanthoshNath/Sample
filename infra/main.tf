@@ -3,10 +3,10 @@ variable "sample" {
   default = "Sample"
 }
 
-provider "aws" {}
-
-data "aws_iam_roles" "roles" {}
+data "external" "example" {
+  program = ["bash", "aws iam list-policies | jq '[.Policies[].PolicyName]'"]
+}
 
 output "sample" {
-  value = "${var.sample}-${terraform.workspace}"
+  value = data.external.example.result
 }
