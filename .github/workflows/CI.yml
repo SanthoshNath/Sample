@@ -35,7 +35,7 @@ jobs:
         
       - run: echo ${{ inputs.environment || 'prod' }}
       
-      - run: echo ${{ contains(fromJSON([inputs.environment]), 'devl') }}
+      - run: echo ${{ contains(fromJSON(format('[{0}]', inputs.environment), 'devl') }}
         
       - name: Github event
         env:
