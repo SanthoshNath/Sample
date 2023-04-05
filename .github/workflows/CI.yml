@@ -32,11 +32,10 @@ jobs:
           import os
           with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
             print(f'json={[x for x in res["response"]["docs"]]}', file=fh)
-    
-      - name: Checkout codebase
-        uses: actions/checkout@v3
         
       - run: echo ${{ inputs.environment || 'prod' }}
+      
+      - run: echo ${{ contains(fromJSON('[inputs.environment]'), 'devl') }}
         
       - name: Github event
         env:
