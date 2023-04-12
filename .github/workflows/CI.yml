@@ -35,6 +35,7 @@ jobs:
         
       - run: |
           echo ${{ inputs.environment || 'prod' }}
+          sample=0
           sample=$(curl -L \
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer ${{ github.token }}"\
