@@ -36,11 +36,18 @@ jobs:
       - run: |
           echo ${{ inputs.environment || 'prod' }}  
           
+          job_id=$(curl -L \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ github.token }}"\
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/${{ github.repository }}/actions/runs/$GITHUB_RUN_ID/jobs | jq -r '.jobs[0].id')
+          echo $job_id  
+          
           sample=$(curl -L \
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer ${{ github.token }}"\
             -H "X-GitHub-Api-Version: 2022-11-28" \
-            https://api.github.com/repos/${{ github.repository }}/actions/jobs/$GITHUB_JOB | jq -r '.status')
+            https://api.github.com/repos/${{ github.repository }}/actions/jobs/$job_id | jq -r '.status')
           echo $sample
       
       - run: echo ${{ contains(fromJSON(format('["{0}"]', inputs.environment)), 'devl') }}
