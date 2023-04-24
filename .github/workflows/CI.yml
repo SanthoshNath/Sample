@@ -18,7 +18,7 @@ on:
           - devl
           - prod
         
-concurrency: ${{ inputs.environment }}
+concurrency: build-${{ inputs.environment }}
 
 jobs:
   build:
