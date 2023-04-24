@@ -13,14 +13,20 @@ on:
     inputs:
       environment:
         required: false
-        type: string
-        default: devl
+        type: choice
+        options:
+          - devl
+          - prod
+        
+concurrency: ${{ inputs.environment }}
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
+      - run: sleep 30
+      
       - id: py
         shell: python
         run: |
