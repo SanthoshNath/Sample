@@ -23,8 +23,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - id: condition
-        run: echo "condition=false" >> "$GITHUB_OUTPUT"
+
     
       - run: sleep 30
         if: steps.condition.outputs.condition
