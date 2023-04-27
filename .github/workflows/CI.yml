@@ -23,11 +23,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
-    
-      - run: sleep 30
-        if: steps.condition.outputs.condition
-      
       - id: py
         shell: python
         run: |
