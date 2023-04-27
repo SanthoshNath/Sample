@@ -1,3 +1,5 @@
+name: Pre-Commit
+
 on:
   push:
     branches:
