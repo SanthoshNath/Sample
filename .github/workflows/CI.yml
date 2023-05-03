@@ -23,6 +23,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - actions/checkout@v3
+    
       - id: py
         shell: python
         run: |
