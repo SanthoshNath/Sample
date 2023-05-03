@@ -27,7 +27,6 @@ jobs:
       
       - uses: actions/github-script@v6
         with:
-          github-token: ${{ inputs.github_token }}
           script: |
             const fs = require('fs')
           
