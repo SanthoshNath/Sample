@@ -5,7 +5,7 @@ variable "sample" {
 
 resource "null_resource" "cluster" {
   triggers = {
-    sample = var.sample
+    sample = "Sample"
   }
   
   lifecycle {
