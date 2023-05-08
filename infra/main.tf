@@ -3,6 +3,19 @@ variable "sample" {
   default = "Sample"
 }
 
+resource "null_resource" "cluster" {
+  triggers = {
+    sample = var.sample
+  }
+  
+  lifecycle {
+    postcondition {
+      condition     = var.sample == "Sample"
+      error_message = "Not Sample"
+    }
+  }
+}
+
 output "sample" {
   value = var.sample
 }
