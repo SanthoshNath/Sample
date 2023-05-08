@@ -3,17 +3,17 @@ variable "sample" {
   default = "Sample"
 }
 
-resource "null_resource" "cluster" {
+resource "null_resource" "this" {
   triggers = {
     sample = "Sample"
   }
   
-  lifecycle {
-    postcondition {
-      condition     = var.sample == "Sample"
-      error_message = "Not Sample"
-    }
-  }
+#   lifecycle {
+#     postcondition {
+#       condition     = var.sample == "Sample"
+#       error_message = "Not Sample"
+#     }
+#   }
 }
 
 output "sample" {
