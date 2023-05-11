@@ -24,8 +24,8 @@ jobs:
       
       - id: str
         run: |
-          str="${{ inputs.environment }}"
-          echo "str=${str// /%0A}" >> $GITHUB_OUTPUT
+          str="a b"
+          echo "str=${str// /'%0A'}" >> $GITHUB_OUTPUT
           
       - run: echo "${{ steps.str.outputs.str }}"
       
