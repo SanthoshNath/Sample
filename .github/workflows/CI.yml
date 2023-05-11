@@ -24,12 +24,17 @@ jobs:
       
       - id: str
         run: |
-          str="a b"
-          echo "str=${str//' '/'%0A'}" >> $GITHUB_OUTPUT
+          str=${'a b'//' '/'\n'}
+          str=$(cat << EOF
+          $str
+          EOF
+          )
+          str="${str//'%'/'%25'}"
+          str="${str//$'\n'/'%0A'}"
+          str="${str//$'\r'/'%0D'}"
+          echo "str=$str" >> $GITHUB_OUTPUT
           
-      - env:
-          str: ${{ steps.str.outputs.str }}
-        run: echo "$str"
+      - run: echo "${{ steps.str.outputs.str }}"
       
       - uses: actions/github-script@v6
         with:
