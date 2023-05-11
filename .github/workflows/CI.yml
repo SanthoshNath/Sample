@@ -14,7 +14,7 @@ on:
       environment:
         required: false
         type: string
-        default: |
+        default: >-
           a=b
           b=c
 jobs:
