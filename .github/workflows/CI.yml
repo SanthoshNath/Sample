@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - run: echo '$("${{ inputs.environment }}"// /%0A)'
+      - run: echo $("${{ inputs.environment }}"// /%0A)
       
       - uses: actions/github-script@v6
         with:
