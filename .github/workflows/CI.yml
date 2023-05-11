@@ -24,7 +24,8 @@ jobs:
       
       - id: str
         run: |
-          str=${'a b'//' '/'\n'}
+          str="a b"
+          str=${str//' '/'\n'}
           str=$(cat << EOF
           $str
           EOF
