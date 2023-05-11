@@ -13,17 +13,18 @@ on:
     inputs:
       environment:
         required: false
-        type: choice
-        options:
-          - devl
-          - prod
-
+        type: string
+        default: |
+          a=b
+          b=c
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
+      
+      - run: echo "${{ inputs.environment }}"
       
       - uses: actions/github-script@v6
         with:
