@@ -24,10 +24,9 @@ jobs:
       
       - id: str
         run: |
-          str="a b"
-          str=${str// /\\n}
           str=$(cat << EOF
-          $str
+          a
+          b
           EOF
           )
           str="${str//'%'/'%25'}"
