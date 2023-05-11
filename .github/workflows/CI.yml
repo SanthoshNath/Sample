@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v3
       
       - run: |
-          str=${{ inputs.environment }}
+          str="${{ inputs.environment }}"
           echo "$(str// /%0A)"
       
       - uses: actions/github-script@v6
