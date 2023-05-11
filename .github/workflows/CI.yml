@@ -26,8 +26,8 @@ jobs:
         id: str
         with:
           script: |
-            core.setOutput("str", `a
-              b`);     
+            str = `a b`.replaceAll(" ", "\n")
+            core.setOutput("str", str)
           
       - run: echo "${{ steps.str.outputs.str }}"
       
