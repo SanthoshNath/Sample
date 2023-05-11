@@ -22,17 +22,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - id: str
-        run: |
-          str=$(cat << EOF
-          a
-          b
-          EOF
-          )
-          str="${str//'%'/'%25'}"
-          str="${str//$'\n'/'%0A'}"
-          str="${str//$'\r'/'%0D'}"
-          echo "str=$str" >> $GITHUB_OUTPUT
+      - uses: actions/github-script@v6
+        id: str
+        with:
+          script: |
+            core.setOutput("str", `a
+              b`);     
           
       - run: echo "${{ steps.str.outputs.str }}"
       
