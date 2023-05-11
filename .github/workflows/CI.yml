@@ -22,9 +22,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - run: |
+      - id: str
+        run: |
           str="${{ inputs.environment }}"
-          echo "${str// /%0A}"
+          echo "str=${str// /%0A}" >> $GITHUB_OUTPUT
+          
+      - run: echo "${{ steps.str.outputs.str }}"
       
       - uses: actions/github-script@v6
         with:
