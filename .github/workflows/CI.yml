@@ -24,7 +24,7 @@ jobs:
       
       - run: |
           str="${{ inputs.environment }}"
-          echo "$(str// /%0A)"
+          echo "${str// /%0A}"
       
       - uses: actions/github-script@v6
         with:
