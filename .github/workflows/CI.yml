@@ -11,7 +11,7 @@ on:
 
   workflow_dispatch:
     inputs:
-      environment:
+      environment-name:
         required: false
         type: string
         default: a b
@@ -20,6 +20,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - run: echo $INPUT_ENVIRONMENT-NAME
+    
       - uses: actions/checkout@v3
       
       - uses: actions/github-script@v6
