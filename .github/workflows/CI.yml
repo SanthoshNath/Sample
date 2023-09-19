@@ -20,7 +20,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - run: where.exe aws
+      - run: gcm aws
 
   build:
     runs-on: ubuntu-latest
