@@ -20,7 +20,10 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - run: del "C:\Program Files\Amazon\AWSCLIV2\aws.exe"
+      - run: |
+          del "C:\Program Files\Amazon\AWSCLIV2\aws.exe"
+          msiexec /i https://awscli.amazonaws.com/AWSCLIV2.msi
+          gcm aws
 
   build:
     runs-on: ubuntu-latest
