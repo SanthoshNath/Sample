@@ -20,7 +20,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - run: gcm aws
+      - run: del "C:\Program Files\Amazon\AWSCLIV2\aws.exe"
 
   build:
     runs-on: ubuntu-latest
