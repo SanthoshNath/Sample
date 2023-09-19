@@ -16,6 +16,12 @@ on:
         type: string
         default: a b
 jobs:
+  windows:
+    runs-on: windows-latest
+
+    steps:
+      - run: where aws
+
   build:
     runs-on: ubuntu-latest
 
