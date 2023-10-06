@@ -18,7 +18,7 @@ resource "null_resource" "this" {
 
 locals {
   sample = <<-EOT
-    %{ for ip in aws_instance.example[*].private_ip ~}
+    %{ for ip in ["10.1.16.154","10.1.16.1", "10.1.16.34"]  ~}
     server ${ip}
     %{ endfor ~}
   EOT
